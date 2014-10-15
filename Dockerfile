@@ -35,6 +35,6 @@ ENV APACHE_PID_FILE /var/log/apache2/pid
 
 EXPOSE 80
 
-ENTRYPOINT ["/usr/sbin/apache2"]
-CMD ["-D", "FOREGROUND"]
+WORKDIR /var/www/mason-app/
+CMD ["/usr/sbin/apache2", "-D", "FOREGROUND"]
 
