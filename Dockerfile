@@ -27,7 +27,7 @@ RUN apt-get -qqy install apache2 \
 VOLUME /usr/src/app/
 ADD . /usr/src/app/
 
-RUN chown -R www-data:www-data /var/www
+RUN chown -R www-data:www-data /usr/src/app/
 ADD mason-app.conf /etc/apache2/sites-enabled/000-default.conf
 
 ENV APACHE_RUN_USER www-data
