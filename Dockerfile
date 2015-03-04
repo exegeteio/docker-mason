@@ -23,7 +23,10 @@ RUN apt-get -qqy install apache2 \
 	libxml-libxml-perl \
 	libxml-simple-perl
 
-ADD . /var/www/mason-app/
+
+VOLUME /usr/src/app/
+ADD . /usr/src/app/
+
 RUN chown -R www-data:www-data /var/www
 ADD mason-app.conf /etc/apache2/sites-enabled/000-default.conf
 
@@ -35,6 +38,4 @@ ENV APACHE_PID_FILE /var/log/apache2/pid
 
 EXPOSE 80
 
-WORKDIR /var/www/mason-app/
 CMD ["/usr/sbin/apache2", "-D", "FOREGROUND"]
-
