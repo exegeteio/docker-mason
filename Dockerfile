@@ -96,7 +96,7 @@ ADD . /usr/src/app/
 ## Enables prefork in Apache, copies in config and entry point, and sets up
 ##  v3's models.
 RUN a2dismod mpm_event && a2enmod mpm_prefork cgi \
-	&& mv mason-app.conf /etc/apache2/sites-enabled/000-default.conf \
+	&& mv /usr/src/app/mason-app.conf /etc/apache2/sites-enabled/000-default.conf \
 	&& chown -R www-data:www-data /usr/src/app/
 
 ENV APACHE_RUN_USER www-data
